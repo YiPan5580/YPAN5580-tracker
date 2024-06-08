@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Tracker Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scss/main.scss">
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Icon</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Analysis</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <table id="methodsTable">
+            <tr>
+                <th class="center-header">Picture</th>
+                <th class="center-header">Method</th>
+                <th class="center-header">Last Used</th>
+                <th class="center-header">Time Spent with</th>
+                <th class="center-header">Achievements</th>
+                <th class="center-header"></th>
+            </tr>
+            
+            
+            <!-- Rows will be added here dynamically -->
+        </table>
+        <!-- Form to add new method -->
+        <h3>Add New Method</h3>
+        <input type="text" id="methodInput" placeholder="Enter Method" required>
+        <input type="text" id="lastUsedInput" placeholder="Last Used" required>
+        <input type="text" id="timeSpentInput" placeholder="Time Spent" required>
+        <input type="text" id="achievementsInput" placeholder="Achievements" required>
+        <button onclick="addMethod()">Add Method</button>
+    </div>
+</div>
+<input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="updateImage(selectedImage, this)">
+<script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', loadTableData);
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* Reset and base styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e2e2e2;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #222;
+    text-align: center;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s, padding-left 0.3s;
+}
+
+.nav-links li a:hover {
+    background: #555;
+    padding-left: 30px;
+}
+
+.image-hover-container {
+    position: relative;
+    width: 100px; /* Adjust based on your image size */
+    height: auto;
+    display: inline-block;
+}
+
+.image-hover-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hover-icon {
+    font-size: 24px; /* Large icon size */
+    margin-right: 5px; /* Small gap between icon and text */
+}
+
+.image-hover-container:hover .hover-content {
+    opacity: 1; /* Show the overlay on hover */
+}
+
+.container {
+    overflow-x: auto; /* Ensures scrollability if table exceeds viewport width */
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.title {
+    font-size: 24px;
+    color: #333;
+    padding: 15px 0;
+
+}
+
+table {
+    width: 100%;
+    table-layout: fixed; /* Important for maintaining column widths */
+    border-collapse: collapse; /* Ensures no space between cells */
+}
+
+.table-text {
+    background-color: #e8f0fe;  /* Light blue background for contrast */
+    padding: 3px 6px;           /* Padding for better text visibility */
+    border-radius: 4px;         /* Rounded corners for visual appeal */
+    display: inline-block;      /* Ensures the background only wraps the text */
+}
+
+/* Styling for all table headers */
+th {  /* A uniform color for all headers */
+    color: white;               /* White text for contrast */
+    text-align: left;
+    padding: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.center-header {
+    background-color: #3C6E71;  /* A different shade for emphasis */
+    color: #FFF;                /* Ensuring text is white for readability */
+}
+
+td {
+    background-color: #f9f9f9;  /* Light gray for table cells */
+    color: #333;                /* Dark gray for text to ensure it's readable */
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #f9f9f9; /* Light gray for cells */
+    color: #333;     
+}
+
+
+/* Ensure adequate space for the delete button */
+th:last-child, td:last-child {
+    width: 120px; /* Adjust as necessary to fit content */
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Styling for interactive elements */
+td img {
+    width: 100px;  /* Appropriate sizing for images */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;  /* Green button for actions */
+    color: white;                /* Text color */
+    border: none;                /* No border for a cleaner look */
+    cursor: pointer;             /* Cursor to pointer to indicate clickable */
+    display: inline-block;
+}
+
+
+button:hover {
+    background-color: #45a049;  /* Slightly darker green on hover for visual feedback */
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .wrapper {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+}

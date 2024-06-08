@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Tracker Dashboard</title>
+    <link rel="stylesheet" href="/index.c180ac0f.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Icon</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Analysis</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="title">Dashboard Analysis</div>
+        <table>
+            <tr>
+                <th class="center-header"></th>
+                <th>Method</th>
+                <th>Last Used</th>
+                <th>Time Spent with</th>
+                <th>Achievements</th>
+                <th></th> <!-- Assuming this th is for arrows -->
+            </tr>
+            <tr onclick="window.location.href='detailPage.html';">
+                <td><img src="/sous_vide.f2a74190.jpg" alt="Sous Vide" style="width: 100px; height: auto" onclick="changeImage(event, this)"></td>
+                <td>Sous vide</td>
+                <td>19/12/2023 19:23:40</td>
+                <td>12H 30M</td>
+                <td>Master</td>
+                <td>&rarr;</td>
+            </tr>
+            <tr onclick="window.location.href='detailPage2.html';">
+                <td><img src="/pan_fried.6a93bce3.jpg" alt="Pan Fried" style="width: 100px; height: auto" onclick="changeImage(event, this)"></td>
+                <td>Pan</td>
+                <td>21/11/2023 13:49:21</td>
+                <td>30M</td>
+                <td>Specialist</td>
+                <td>&rarr;</td>
+            </tr>
+            <tr onclick="window.location.href='detailPage3.html';">
+                <td><img src="/grill.4ad3be90.jpg" alt="Grill" style="width: 100px; height: auto" onclick="changeImage(event, this)"></td>
+                <td>Grill</td>
+                <td>13/01/2024 14:10</td>
+                <td>1H</td>
+                <td>N.A.</td>
+                <td>&rarr;</td>
+            </tr>
+        </table>
+        <input type="file" id="fileInput" accept="image/*" style="display: none" onchange="updateImage(selectedImage, this)">
+    </div>
+</div>
+<script src="/public.0ba7c674.js"></script></body>
+<script src="/index.f3bd186e.js"></script>
+</html>
