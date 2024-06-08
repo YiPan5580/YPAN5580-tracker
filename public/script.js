@@ -44,6 +44,7 @@ function deleteRow(button) {
     }
 }
 
+//Image uploader
 function changeImage(event, imgElement) {
     // Prevents the click event from bubbling up
     event.stopPropagation();  
