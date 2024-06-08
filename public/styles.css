@@ -1,4 +1,8 @@
-/* Reset and base styles */
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #e2e2e2;
@@ -36,100 +40,44 @@ body {
     text-decoration: none;
     transition: background 0.3s, padding-left 0.3s;
 }
-
+/* Effects for hovering over */
 .nav-links li a:hover {
     background: #555;
     padding-left: 30px;
 }
 
-.image-hover-container {
-    position: relative;
-    width: 100px; /* Adjust based on your image size */
-    height: auto;
-    display: inline-block;
-}
-
-.image-hover-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.hover-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.hover-icon {
-    font-size: 24px; /* Large icon size */
-    margin-right: 5px; /* Small gap between icon and text */
-}
-
-.image-hover-container:hover .hover-content {
-    opacity: 1; /* Show the overlay on hover */
-}
-
 .container {
-    overflow-x: auto; /* Ensures scrollability if table exceeds viewport width */
+    overflow-x: auto;
     flex-grow: 1;
     padding: 20px;
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     font-size: 24px;
     color: #333;
     padding: 15px 0;
+}
 
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 table {
     width: 100%;
-    table-layout: fixed; /* Important for maintaining column widths */
-    border-collapse: collapse; /* Ensures no space between cells */
+    table-layout: fixed;
+    border-collapse: collapse;
 }
 
 .table-text {
-    background-color: #e8f0fe;  /* Light blue background for contrast */
-    padding: 3px 6px;           /* Padding for better text visibility */
-    border-radius: 4px;         /* Rounded corners for visual appeal */
-    display: inline-block;      /* Ensures the background only wraps the text */
-}
-
-/* Styling for all table headers */
-th {  /* A uniform color for all headers */
-    color: white;               /* White text for contrast */
-    text-align: left;
-    padding: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-
-.center-header {
-    background-color: #3C6E71;  /* A different shade for emphasis */
-    color: #FFF;                /* Ensuring text is white for readability */
-}
-
-td {
-    background-color: #f9f9f9;  /* Light gray for table cells */
-    color: #333;                /* Dark gray for text to ensure it's readable */
-    padding: 12px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    background-color: #e8f0fe;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-block;
 }
 
 th, td {
@@ -138,49 +86,157 @@ th, td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: #f9f9f9; /* Light gray for cells */
-    color: #333;     
 }
 
+th {
+    color: white;
+    background-color: #3C6E71;
+}
 
-/* Ensure adequate space for the delete button */
+td {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
 th:last-child, td:last-child {
-    width: 120px; /* Adjust as necessary to fit content */
-    text-align: right;
+    width: 120px;
+    text-align: center; /* Center align the last cell (button cell) */
     padding-right: 20px;
 }
 
-/* Styling for interactive elements */
 td img {
-    width: 100px;  /* Appropriate sizing for images */
+    width: 100px;
     height: auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
-
-
 
 button {
     padding: 10px 20px;
-    background-color: #4CAF50;  /* Green button for actions */
-    color: white;                /* Text color */
-    border: none;                /* No border for a cleaner look */
-    cursor: pointer;             /* Cursor to pointer to indicate clickable */
-    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
-
 
 button:hover {
-    background-color: #45a049;  /* Slightly darker green on hover for visual feedback */
+    background-color: #45a049;
 }
 
+/* Center the button within its cell */
+td:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-slot {
+    background-color: #e0e0e0;
+    position: relative;
+    width: 100%;
+    /* 16:9 aspect ratio */
+    padding-top: 56.25%; 
+    overflow: hidden;
+}
+
+.video-slot iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.community-slot {
+    background-color: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Mobile styles */
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 100%; /* Full width on small screens */
+        width: 100%;
     }
 
     .wrapper {
-        flex-direction: column; /* Stack sidebar and content vertically */
+        flex-direction: column;
+    }
+
+    .desktop-title {
+        display: none;
+    }
+
+    .container {
+        align-items: center;
+        
+    }
+
+    .table-container {
+        width: 100%;
+        /* Add padding to the table container */
+        padding: 25%; 
+    }
+
+    table, th, td {
+        display: block;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    td img {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .community-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .center-table {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .center-table > div {
+        width: 100%;
+    }
+
+    td:last-child {
+        justify-content: center;
     }
 }

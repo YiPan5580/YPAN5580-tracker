@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooking Tracker Dashboard</title>
+    <title>CookLog</title>
+    <!--Linking the css-->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="scss/main.scss">
 </head>
@@ -11,40 +12,86 @@
 <div class="wrapper">
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2>Icon</h2>
+            <h2>CookLog</h2>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Analysis</a></li>
+            <!-- Links to different sections of the app -->
+            <li><a href="#dashboardSection">Dashboard</a></li>
+            <li><a href="#communitySection">Community</a></li>
+            <li><a href="#tutorialSection">Tutorials</a></li>
         </ul>
     </div>
     <div class="container">
-        <table id="methodsTable">
-            <tr>
-                <th class="center-header">Picture</th>
-                <th class="center-header">Method</th>
-                <th class="center-header">Last Used</th>
-                <th class="center-header">Time Spent with</th>
-                <th class="center-header">Achievements</th>
-                <th class="center-header"></th>
-            </tr>
-            
-            
-            <!-- Rows will be added here dynamically -->
-        </table>
-        <!-- Form to add new method -->
-        <h3>Add New Method</h3>
-        <input type="text" id="methodInput" placeholder="Enter Method" required>
-        <input type="text" id="lastUsedInput" placeholder="Last Used" required>
-        <input type="text" id="timeSpentInput" placeholder="Time Spent" required>
-        <input type="text" id="achievementsInput" placeholder="Achievements" required>
-        <button onclick="addMethod()">Add Method</button>
+        <section id="dashboardSection">
+            <div class="center-table">
+                <h1 class="desktop-title">Dashboard</h1>
+                <div class="table-container">
+                    <table id="methodsTable">
+                        <thead>
+                            <tr>
+                                <!-- Top table -->
+                                <th class="center-header">Picture</th>
+                                <th class="center-header">Method</th>
+                                <th class="center-header">Last Used</th>
+                                <th class="center-header">Time Spent with</th>
+                                <th class="center-header">Achievements</th>
+                                <th class="center-header"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h3>Add New Method</h3>
+            <input type="text" id="methodInput" placeholder="Enter Method" required>
+            <input type="text" id="lastUsedInput" placeholder="Last Used" required>
+            <input type="text" id="timeSpentInput" placeholder="Time Spent" required>
+            <input type="text" id="achievementsInput" placeholder="Achievements" required>
+            <button id="addMethodButton">Add Method</button>
+            <button id="resetButton">Reset</button>
+        </section>
+        <!-- Community content, was planning to add replying but ran out of time -->
+        <section id="communitySection">
+            <h1>Community</h1>
+            <div class="community-grid">
+                <div class="community-slot">Sous vide helps retain the juiciness in meats like no other method.</div>
+                <div class="community-slot">Pan frying gives such a nice sear on steaks.</div>
+                <div class="community-slot">Grilled vegetables are a family favorite at our weekend get-togethers.</div>
+                <div class="community-slot">I love using the sous vide for precise temperature control.</div>
+                <div class="community-slot">The grill adds a wonderful smoky flavor to everything.</div>
+                <div class="community-slot">Using the pan is quick and easy for weeknight meals.</div>
+            </div>
+        </section>
+        <!-- The website would provide videos that is recommended to the user for what types of cooking method he is using -->
+        <section id="tutorialSection">
+            <h1>Tutorial</h1>
+            <p>Watch and follow the videos to earn higher Achievements</p>
+            <div class="video-grid">
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NaMtktnlb4A?si=5gsT7cXcsLRHXrbJ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vxNaxi6dmFc?si=1wkjKCMOJ8k-lJ1K" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/yPAeRiKa0h8?si=3zfXx6SPV5S2lF3e" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/g5Ejn57MKao?si=2GgBertRZSqWBFwA" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/YRfYGQcb4Jc?si=54J2KRVER7Ux4HDQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-slot">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uILSZN8pbL0?si=21d8tPvAnDELH0Dk" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
-<input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="updateImage(selectedImage, this)">
-<script src="script.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', loadTableData);
-</script>
+<input type="file" id="fileInput" accept="image/*" style="display:none;">
+<!-- Remove type="module" to open without parcel-->
+<script src="script.js" type="module"></script>
 </body>
 </html>
